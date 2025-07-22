@@ -1,0 +1,238 @@
+CREATE TABLE Program (
+ProgramID NUMBER(10) PRIMARY KEY,
+ProgramName CHARACTER(40) NOT NULL,
+ProgramDescription CHARACTER(200) NOT NULL,
+ProgramDuration NUMBER(5) NOT NULL
+);
+
+ DESC Student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENTID                                 NOT NULL NUMBER(10)
+ STUDENTNAME                               NOT NULL CHAR(40)
+ STUDENTEMAIL                              NOT NULL CHAR(30)
+ STUDENTADDRESS                            NOT NULL CHAR(100)
+ STUDENTCONTACT                            NOT NULL CHAR(15)
+ STUDENTDATEOFBIRTH                        NOT NULL DATE
+ PROGRAMID                                          NUMBER(10)
+
+
+CREATE TABLE Student (
+StudentID NUMBER(10) PRIMARY KEY,
+StudentName CHARACTER(40) NOT NULL,
+StudentEmail CHARACTER(30) NOT NULL,
+StudentAddress CHARACTER(100) NOT NULL,
+StudentContact CHARACTER(15) NOT NULL,
+StudentDateOfBirth DATE NOT NULL,
+ProgramID NUMBER(10),
+CONSTRAINT FK_Student_Program FOREIGN KEY (ProgramID) REFERENCES Program (ProgramID)
+);
+
+DESC Student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENTID                                 NOT NULL NUMBER(10)
+ STUDENTNAME                               NOT NULL CHAR(40)
+ STUDENTEMAIL                              NOT NULL CHAR(30)
+ STUDENTADDRESS                            NOT NULL CHAR(100)
+ STUDENTCONTACT                            NOT NULL CHAR(15)
+ STUDENTDATEOFBIRTH                        NOT NULL DATE
+ PROGRAMID                                          NUMBER(10)
+
+
+CREATE TABLE StudentProgram (
+StudentID NUMBER(10),
+ProgramID NUMBER(10),
+PRIMARY KEY (StudentID, ProgramID),
+CONSTRAINT FK_StudentProgram_Student FOREIGN KEY (StudentID) REFERENCES Student (StudentID),
+CONSTRAINT FK_StudentProgram_Program FOREIGN KEY (ProgramID) REFERENCES Program (ProgramID)
+);
+
+SQL> DESC StudentProgram;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENTID                                 NOT NULL NUMBER(10)
+ PROGRAMID                                 NOT NULL NUMBER(10)
+
+
+CREATE TABLE Module (
+ModuleID NUMBER(10) PRIMARY KEY,
+ModuleName CHARACTER(40) NOT NULL,
+ModuleDescription CHARACTER(200) NOT NULL
+);
+
+ DESC Module;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ MODULEID                                  NOT NULL NUMBER(10)
+ MODULENAME                                NOT NULL CHAR(40)
+ MODULEDESCRIPTION                         NOT NULL CHAR(200)
+
+
+CREATE TABLE StudentModule (
+StudentID NUMBER(10),
+ModuleID NUMBER(10),
+PRIMARY KEY (StudentID, ModuleID),
+CONSTRAINT FK_StudentModule_Student FOREIGN KEY (StudentID) REFERENCES Student (StudentID),
+CONSTRAINT FK_StudentModule_Module FOREIGN KEY (ModuleID) REFERENCES Module (ModuleID)
+);
+
+DESC StudentModule;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENTID                                 NOT NULL NUMBER(10)
+ MODULEID                                  NOT NULL NUMBER(10)
+
+CREATE TABLE Teacher (
+TeacherID NUMBER(10) PRIMARY KEY,
+TeacherFirstName CHARACTER(40) NOT NULL,
+TeacherLastName CHARACTER(40) NOT NULL,
+TeacherEmail CHARACTER(30) UNIQUE NOT NULL
+);
+
+ DESC Teacher;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ TEACHERID                                 NOT NULL NUMBER(10)
+ TEACHERFIRSTNAME                          NOT NULL CHAR(40)
+ TEACHERLASTNAME                           NOT NULL CHAR(40)
+ TEACHEREMAIL                              NOT NULL CHAR(30)
+
+
+CREATE TABLE TeacherModuleStudent (
+    StudentID NUMBER(10),
+    ModuleID NUMBER(10),
+    TeacherID NUMBER(10),
+    PRIMARY KEY (StudentID, ModuleID, TeacherID),
+    CONSTRAINT FK_TMS_Student FOREIGN KEY (StudentID) REFERENCES Student (StudentID),
+    CONSTRAINT FK_TMS_Module FOREIGN KEY (ModuleID) REFERENCES Module (ModuleID),
+    CONSTRAINT FK_TMS_Teacher FOREIGN KEY (TeacherID) REFERENCES Teacher (TeacherID)
+);
+
+DESC TeacherModuleStudent;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENTID                                 NOT NULL NUMBER(10)
+ MODULEID                                  NOT NULL NUMBER(10)
+ TEACHERID                                 NOT NULL NUMBER(10)
+
+
+CREATE TABLE Announcement (
+AnnouncementID NUMBER(10) PRIMARY KEY,
+AnnouncementTitle CHARACTER(50) NOT NULL,
+AnnouncementContent CHARACTER(200) NOT NULL,
+AnnouncementDate DATE NOT NULL,
+AnnouncementExpiryDate DATE NOT NULL
+);
+
+DESC Announcement;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ANNOUNCEMENTID                            NOT NULL NUMBER(10)
+ ANNOUNCEMENTTITLE                         NOT NULL CHAR(50)
+ ANNOUNCEMENTCONTENT                       NOT NULL CHAR(200)
+ ANNOUNCEMENTDATE                          NOT NULL DATE
+ ANNOUNCEMENTEXPIRYDATE                    NOT NULL DATE
+
+
+CREATE TABLE AnnoucementTeacherModStu (
+StudentID NUMBER(10),
+ModuleID NUMBER(10),
+TeacherID NUMBER(10),
+AnnouncementID NUMBER(10),
+PRIMARY KEY (StudentID, ModuleID, TeacherID, AnnouncementID),
+CONSTRAINT FK_ATMS_Student FOREIGN KEY (StudentID) REFERENCES Student (StudentID),
+CONSTRAINT FK_ATMS_Module FOREIGN KEY (ModuleID) REFERENCES Module (ModuleID),
+CONSTRAINT FK_ATMS_Teacher FOREIGN KEY (TeacherID) REFERENCES Teacher (TeacherID),
+CONSTRAINT FK_ATMS_Announcement FOREIGN KEY (AnnouncementID) REFERENCES Announcement (AnnouncementID)
+);
+
+
+SQL> DESC AnnoucementTeacherModStu;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENTID                                 NOT NULL NUMBER(10)
+ MODULEID                                  NOT NULL NUMBER(10)
+ TEACHERID                                 NOT NULL NUMBER(10)
+ ANNOUNCEMENTID                            NOT NULL NUMBER(10)
+
+CREATE TABLE Assessment (
+AssessmentID NUMBER(10) PRIMARY KEY,
+AssessmentTitle CHARACTER(50) NOT NULL,
+AssessmentDeadline DATE NOT NULL
+);
+
+ DESC Assessment;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ASSESSMENTID                              NOT NULL NUMBER(10)
+ ASSESSMENTTITLE                           NOT NULL CHAR(50)
+ ASSESSMENTDEADLINE                        NOT NULL DATE
+
+
+CREATE TABLE Result (
+ResultID NUMBER(10) PRIMARY KEY,
+MarksObtained NUMBER(5) NOT NULL
+);
+
+ DESC Result;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ RESULTID                                  NOT NULL NUMBER(10)
+ MARKSOBTAINED                             NOT NULL NUMBER(5)
+
+CREATE TABLE StuModAssessmentResult (
+StudentID NUMBER(10),
+ModuleID NUMBER(10),
+AssessmentID NUMBER(10),
+ResultID NUMBER(10),
+PRIMARY KEY (StudentID, ModuleID, AssessmentID, ResultID),
+CONSTRAINT FK_SMAR_Student FOREIGN KEY (StudentID) REFERENCES Student (StudentID),
+CONSTRAINT FK_SMAR_Module FOREIGN KEY (ModuleID) REFERENCES Module (ModuleID),
+CONSTRAINT FK_SMAR_Assessment FOREIGN KEY (AssessmentID) REFERENCES Assessment (AssessmentID),
+CONSTRAINT FK_SMAR_Result FOREIGN KEY (ResultID) REFERENCES Result (ResultID)
+);
+
+
+SQL> DESC StuModAssessmentResult;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENTID                                 NOT NULL NUMBER(10)
+ MODULEID                                  NOT NULL NUMBER(10)
+ ASSESSMENTID                              NOT NULL NUMBER(10)
+ RESULTID                                  NOT NULL NUMBER(10)
+
+CREATE TABLE Resources (
+ResourcesID NUMBER(10) PRIMARY KEY,
+ResourcesType CHARACTER(50) NOT NULL,
+ResourcesSequenceOrder CHARACTER(20) NOT NULL
+);
+
+ DESC Resources;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ RESOURCESID                               NOT NULL NUMBER(10)
+ RESOURCESTYPE                             NOT NULL CHAR(50)
+ RESOURCESSEQUENCEORDER                    NOT NULL CHAR(20)
+
+
+CREATE TABLE StudentModuleResource (
+StudentID NUMBER(10),
+ModuleID NUMBER(10),
+ResourcesID NUMBER(10),
+ResourcesStatus CHARACTER(20) NOT NULL,
+PRIMARY KEY (StudentID, ModuleID, ResourcesID),
+CONSTRAINT FK_SMR_Student FOREIGN KEY (StudentID) REFERENCES Student (StudentID),
+CONSTRAINT FK_SMR_Module FOREIGN KEY (ModuleID) REFERENCES Module (ModuleID),
+CONSTRAINT FK_SMR_Resources FOREIGN KEY (ResourcesID) REFERENCES Resources (ResourcesID)
+);
+
+ DESC StudentModuleResource;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENTID                                 NOT NULL NUMBER(10)
+ MODULEID                                  NOT NULL NUMBER(10)
+ RESOURCESID                               NOT NULL NUMBER(10)
+ RESOURCESSTATUS                           NOT NULL CHAR(20)
+
+

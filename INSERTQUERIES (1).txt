@@ -1,0 +1,717 @@
+INSERT INTO Program
+VALUES 
+(101, 'Computing', '3 years BSc. Hons Computing', 3);
+INSERT INTO Program
+VALUES 
+(102, 'Multimedia', '3 years BSc. Hons Multimedia', 3);
+INSERT INTO Program
+VALUES 
+(103, 'AI', '3 years BSc. Hons AI', 3);
+INSERT INTO Program
+VALUES 
+(104, 'Networking', '3 years BSc. Hons Networking', 3);
+INSERT INTO Program
+VALUES 
+(105, 'BBA', '3 years BSc. Hons BBA', 3);
+
+
+select * from program;
+
+ PROGRAMID PROGRAMNAME                              PROGRAMDESCRIPTION                                                                                          PROGRAMDURATION
+---------- ---------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------
+       101 Computing                                3 years BSc. Hons Computing                                                                               3
+       102 Multimedia                               3 years BSc. Hons Multimedia                                                                              3
+       103 AI                                       3 years BSc. Hons AI                                                                                      3
+       104 Networking                               3 years BSc. Hons Networking                                                                              3
+       105 BBA                                      3 years BSc. Hons BBA                                                                                     3
+
+
+INSERT INTO Student
+VALUES
+(201, 'Suman Shrestha', 'suman.shrestha@gmail.com', 'Lalitpur', '9801234561', TO_DATE('2005-01-12', 'YYYY-MM-DD'), 101); 
+INSERT INTO Student
+VALUES
+(202, 'Priya Maharjan', 'priya.maharjan@gmail.com', 'Bhaktapur', '9802345672', TO_DATE('2004-06-25', 'YYYY-MM-DD'), 102);
+INSERT INTO Student
+VALUES
+(203, 'Anish Manandhar', 'anish.manandhar@gmail.com', 'Kalimati', '9803456783', TO_DATE('2005-03-15', 'YYYY-MM-DD'), 103);
+INSERT INTO Student
+VALUES
+(204, 'Bishal Rai', 'bishal.rai@gmail.com', 'Koteshwor', '9804567894', TO_DATE('2003-08-09', 'YYYY-MM-DD'), 104);
+INSERT INTO Student
+VALUES
+(205, 'Sneha Basnet', 'sneha.basnet@gmail.com', 'Jawalakhel', '9805678905', TO_DATE('2004-11-18', 'YYYY-MM-DD'), 105);
+INSERT INTO Student
+VALUES
+(206, 'Ravi Tamang', 'ravi.tamang@gmail.com', 'Maitidevi', '9806789016', TO_DATE('2005-04-10', 'YYYY-MM-DD'), 101);
+INSERT INTO Student
+VALUES
+(207, 'Sita Lama', 'sita.lama@gmail.com', 'Sanepa', '9807890127', TO_DATE('2003-12-30', 'YYYY-MM-DD'), 103); 
+
+Select * from Student;
+
+ STUDENTID STUDENTNAME                              STUDENTEMAIL                   STUDENTADDRESS                                                                                       STUDENTCONTACT  STUDENTDA  PROGRAMID
+---------- ---------------------------------------- ------------------------------ ---------------------------------------------------------------------------------------------------- --------------- --------- ----------
+       201 Suman Shrestha                           suman.shrestha@gmail.com       Lalitpur                                                                                             9801234561      12-JAN-05        101
+       202 Priya Maharjan                           priya.maharjan@gmail.com       Bhaktapur                                                                                            9802345672      25-JUN-04        102
+       203 Anish Manandhar                          anish.manandhar@gmail.com      Kalimati                                                                                             9803456783      15-MAR-05        103
+       204 Bishal Rai                               bishal.rai@gmail.com           Koteshwor                                                                                            9804567894      09-AUG-03        104
+       205 Sneha Basnet                             sneha.basnet@gmail.com         Jawalakhel                                                                                           9805678905      18-NOV-04        105
+       206 Ravi Tamang                              ravi.tamang@gmail.com          Maitidevi                                                                                            9806789016      10-APR-05        101
+       207 Sita Lama                                sita.lama@gmail.com            Sanepa                                                                                               9807890127      30-DEC-03        103
+
+
+INSERT INTO Module VALUES
+(301, 'Programming', 'Programming Module');
+INSERT INTO Module VALUES
+(302, 'Logic And Problem Solving', 'Logic And Problem Solving Module');
+INSERT INTO Module VALUES
+(303, 'Database', 'Database Module');
+INSERT INTO Module VALUES
+(304, 'Software Engineering', 'Software Engineering Module');
+INSERT INTO Module VALUES
+(305, 'Fundamentals of Computing', 'Fundamentals of Computing Module');
+INSERT INTO Module VALUES
+(306, 'Network Operating Systems', 'Network Operating Systems Module');
+INSERT INTO Module VALUES
+(307, 'Calculus', 'Calculus Module');
+
+Select * from Module;
+
+  MODULEID MODULENAME                               MODULEDESCRIPTION
+---------- ---------------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+       301 Programming                              Programming Module
+       302 Logic And Problem Solving                Logic And Problem Solving Module
+       303 Database                                 Database Module
+       304 Software Engineering                     Software Engineering Module
+       305 Fundamentals of Computing                Fundamentals of Computing Module
+       306 Network Operating Systems                Network Operating Systems Module
+       307 Calculus                                 Calculus Module
+
+7 rows selected.
+
+INSERT INTO Teacher VALUES
+(101, 'Ram', 'Sharma', 'ram.sharma@gmail.com');
+INSERT INTO Teacher VALUES
+(102, 'Sita', 'Thapa', 'sita.thapa@gmail.com');
+INSERT INTO Teacher VALUES
+(103, 'Krishna', 'Adhikari', 'krishna.adhikari@gmail.com');
+INSERT INTO Teacher VALUES
+(104, 'Gita', 'Basnet', 'gita.basnet@gmail.com');
+INSERT INTO Teacher VALUES
+(105, 'Ramesh', 'Khadka', 'ramesh.khadka@gmail.com');
+INSERT INTO Teacher VALUES
+(106, 'Laxmi', 'Poudel', 'laxmi.poudel@gmail.com');
+INSERT INTO Teacher VALUES
+(107, 'Binod', 'Gurung', 'binod.gurung@gmail.com');
+
+ Select * from Teacher;
+
+ TEACHERID TEACHERFIRSTNAME                         TEACHERLASTNAME                          TEACHEREMAIL
+---------- ---------------------------------------- ---------------------------------------- ------------------------------
+       101 Ram                                      Sharma                                   ram.sharma@gmail.com
+       102 Sita                                     Thapa                                    sita.thapa@gmail.com
+       103 Krishna                                  Adhikari                                 krishna.adhikari@gmail.com
+       104 Gita                                     Basnet                                   gita.basnet@gmail.com
+       105 Ramesh                                   Khadka                                   ramesh.khadka@gmail.com
+       106 Laxmi                                    Poudel                                   laxmi.poudel@gmail.com
+       107 Binod                                    Gurung                                   binod.gurung@gmail.com
+
+7 rows selected.
+
+
+
+INSERT INTO StudentModule VALUES
+(201, 301); 
+INSERT INTO StudentModule VALUES 
+(201, 302);  
+INSERT INTO StudentModule VALUES
+(201, 303);
+INSERT INTO StudentModule VALUES
+(202, 303);  
+INSERT INTO StudentModule VALUES
+(202, 304);  
+INSERT INTO StudentModule VALUES
+(202, 305);  
+INSERT INTO StudentModule VALUES
+(203, 301); 
+INSERT INTO StudentModule VALUES
+(203, 305);  
+INSERT INTO StudentModule VALUES
+(203, 306);  
+INSERT INTO StudentModule VALUES
+(204, 302);  
+INSERT INTO StudentModule VALUES
+(204, 303);  
+INSERT INTO StudentModule VALUES
+(204, 307); 
+INSERT INTO StudentModule VALUES
+(205, 301); 
+INSERT INTO StudentModule VALUES
+(205, 304); 
+INSERT INTO StudentModule VALUES
+(205, 307); 
+INSERT INTO StudentModule VALUES
+(206, 303); 
+INSERT INTO StudentModule VALUES
+(206, 305); 
+INSERT INTO StudentModule VALUES
+(206, 306);
+INSERT INTO StudentModule VALUES
+(207, 304);  
+INSERT INTO StudentModule VALUES
+(207, 306); 
+INSERT INTO StudentModule VALUES
+(207, 307); 
+
+ select * from StudentModule;
+
+ STUDENTID   MODULEID
+---------- ----------
+       201        301
+       201        302
+       201        303
+       202        303
+       202        304
+       202        305
+       203        301
+       203        305
+       203        306
+       204        302
+       204        303
+
+ STUDENTID   MODULEID
+---------- ----------
+       204        307
+       205        301
+       205        304
+       205        307
+       206        303
+       206        305
+       206        306
+       207        304
+       207        306
+       207        307
+
+21 rows selected.
+
+
+ INSERT INTO TeacherModuleStudent
+  2  VALUES
+  3  (201,301,101);
+
+1 row created.
+
+SQL> INSERT INTO TeacherModuleStudent
+  2  VALUES
+  3  (202,302,102);
+
+1 row created.
+
+SQL> INSERT INTO TeacherModuleStudent
+  2  VALUES
+  3  (203,303,103);
+
+1 row created.
+
+SQL> INSERT INTO TeacherModuleStudent
+  2  VALUES
+  3  (204,304,104);
+
+1 row created.
+
+SQL> INSERT INTO TeacherModuleStudent
+  2  VALUES
+  3  (205,305,105);
+
+1 row created.
+
+SQL> INSERT INTO TeacherModuleStudent
+  2  VALUES
+  3  (206,306,106);
+
+1 row created.
+
+SQL> INSERT INTO TeacherModuleStudent
+  2  VALUES
+  3  (207,307,107);
+
+1 row created.
+
+SQL> Select * from TeacherModuleStudent;
+
+ STUDENTID   MODULEID  TEACHERID
+---------- ---------- ----------
+       201        301        101
+       202        302        102
+       203        303        103
+       204        304        104
+       205        305        105
+       206        306        106
+       207        307        107
+
+7 rows selected.
+
+
+
+SQL> INSERT INTO ANNOUNCEMENT
+  2  VALUES
+  3  (501,'New Event','Futurma',TO_DATE('10-APRIL-2024'), TO_DATE('20-APRIL-2024'));
+
+1 row created.
+
+SQL> INSERT INTO ANNOUNCEMENT
+  2  VALUES
+  3  (502,'Test Soon','Networking Operating System',TO_DATE('01-JULY-2024'), TO_DATE('15-JULY-2024'));
+
+1 row created.
+
+SQL> INSERT INTO ANNOUNCEMENT
+  2  VALUES
+  3  (503,'Lecture Slide Uploaded','Programming',TO_DATE('02-MARCH-2024'), TO_DATE('10-MARCH-2024'));
+
+1 row created.
+
+SQL> INSERT INTO ANNOUNCEMENT
+  2  VALUES
+  3  (504,'Assignment Deadline','Database',TO_DATE('03-JUNE-2024'), TO_DATE('01-JULY-2024'));
+
+1 row created.
+
+SQL> INSERT INTO ANNOUNCEMENT
+  2  VALUES
+  3  (505,'Coursework Deadline','Cloud Computing',TO_DATE('06-August-2024'), TO_DATE('03-SEPTEMBER-2024'));
+
+1 row created.
+
+SQL> INSERT INTO ANNOUNCEMENT
+  2  VALUES
+  3  (506,'London Met ID Received','Check Mail',TO_DATE('12-November-2024'), TO_DATE('20-November-2024'));
+
+1 row created.
+
+SQL> INSERT INTO ANNOUNCEMENT
+  2  VALUES
+  3  (507,'File Uploaded','For Mac',TO_DATE('15-DECEMBER-2024'), TO_DATE('20-DECEMBER-2024'));
+
+1 row created.
+
+
+ Select * from Announcement;
+
+ANNOUNCEMENTID ANNOUNCEMENTTITLE                                  ANNOUNCEMENTCONTENT                                                                                                                                                                                      ANNOUNCEM ANNOUNCEM
+-------------- -------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- --------- ---------
+           501 New Event                                          Futurma                                                                                                                                                                                                  10-APR-24 20-APR-24
+           502 Test Soon                                          Networking Operating System                                                                                                                                                                              01-JUL-24 15-JUL-24
+           503 Lecture Slide Uploaded                             Programming                                                                                                                                                                                              02-MAR-24 10-MAR-24
+           504 Assignment Deadline                                Database                                                                                                                                                                                                 03-JUN-24 01-JUL-24
+           505 Coursework Deadline                                Cloud Computing                                                                                                                                                                                          06-AUG-24 03-SEP-24
+           506 London Met ID Received                             Check Mail                                                                                                                                                                                               12-NOV-24 20-NOV-24
+           507 File Uploaded                                      For Mac                                                                                                                                                                                                  15-DEC-24 20-DEC-24
+
+ INSERT INTO AnnoucementTeacherModStu
+  2  VALUES
+  3  (201,301,101,501);
+
+1 row created.
+
+SQL> INSERT INTO AnnoucementTeacherModStu
+  2  VALUES
+  3  (202,302,102,502);
+
+1 row created.
+
+SQL> INSERT INTO AnnoucementTeacherModStu
+  2  VALUES
+  3  (203,303,103,503);
+
+1 row created.
+
+SQL> INSERT INTO AnnoucementTeacherModStu
+  2  VALUES
+  3  (204,304,104,504);
+
+1 row created.
+
+SQL> INSERT INTO AnnoucementTeacherModStu
+  2  VALUES
+  3  (205,305,105,505);
+
+1 row created.
+
+SQL> INSERT INTO AnnoucementTeacherModStu
+  2  VALUES
+  3  (206,306,106,506);
+
+1 row created.
+
+SQL> INSERT INTO AnnoucementTeacherModStu
+  2  VALUES
+  3  (207,307,107,507);
+
+1 row created.
+
+SQL> Select * from AnnoucementTeacherModStu;
+
+ STUDENTID   MODULEID  TEACHERID ANNOUNCEMENTID
+---------- ---------- ---------- --------------
+       201        301        101            501
+       202        302        102            502
+       203        303        103            503
+       204        304        104            504
+       205        305        105            505
+       206        306        106            506
+       207        307        107            507
+
+7 rows selected.
+
+SQL> INSERT INTO Assessment
+  2  VALUES
+  3  (401,'Project Report', TO_DATE('10-JANUARY-2023'));
+
+1 row created.
+
+SQL> INSERT INTO Assessment
+  2  VALUES
+  3  (402,'Log Book', TO_DATE('15-March-2023'));
+
+1 row created.
+
+SQL> INSERT INTO Assessment
+  2  VALUES
+  3  (403,'Group Presentation', TO_DATE('25-December-2023'));
+
+1 row created.
+
+SQL> INSERT INTO Assessment
+  2  VALUES
+  3  (404,'Lab Report', TO_DATE('09-August-2024'));
+
+1 row created.
+
+SQL> INSERT INTO Assessment
+  2  VALUES
+  3  (405,'Research Based Project', TO_DATE('11-April-2024'));
+
+1 row created.
+
+SQL> INSERT INTO Assessment
+  2  VALUES
+  3  (406,'Lab Assignment', TO_DATE('27-July-2024'));
+
+1 row created.
+
+SQL> INSERT INTO Assessment
+  2  VALUES
+  3  (407,'Documentation', TO_DATE('27-February-2024'));
+
+1 row created.
+
+SQL> Select * from Assessment;
+
+ASSESSMENTID ASSESSMENTTITLE                                    ASSESSMEN
+------------ -------------------------------------------------- ---------
+         401 Project Report                                     10-JAN-23
+         402 Log Book                                           15-MAR-23
+         403 Group Presentation                                 25-DEC-23
+         404 Lab Report                                         09-AUG-24
+         405 Research Based Project                             11-APR-24
+         406 Lab Assignment                                     27-JUL-24
+         407 Documentation                                      27-FEB-24
+
+7 rows selected.
+
+
+
+SQL> INSERT INTO Result
+  2  VALUES
+  3  (601,78);
+
+1 row created.
+
+SQL> INSERT INTO Result
+  2  VALUES
+  3  (602,60);
+
+1 row created.
+
+SQL> INSERT INTO Result
+  2  VALUES
+  3  (603,80);
+
+1 row created.
+
+SQL> INSERT INTO Result
+  2  VALUES
+  3  (604,70);
+
+1 row created.
+
+SQL> INSERT INTO Result
+  2  VALUES
+  3  (605,87);
+
+1 row created.
+
+SQL> INSERT INTO Result
+  2  VALUES
+  3  (606,56);
+
+1 row created.
+
+SQL> INSERT INTO Result
+  2  VALUES
+  3  (607,90);
+
+1 row created.
+
+SQL> Select * from Result;
+
+  RESULTID MARKSOBTAINED
+---------- -------------
+       601            78
+       602            60
+       603            80
+       604            70
+       605            87
+       606            56
+       607            90
+
+7 rows selected.
+
+
+SQL> INSERT INTO StuModAssessmentResult
+  2  VALUES
+  3  (201, 301, 401, 601);
+
+1 row created.
+
+SQL> INSERT INTO StuModAssessmentResult
+  2  VALUES
+  3  (202, 302, 402, 602);
+
+1 row created.
+
+SQL> INSERT INTO StuModAssessmentResult
+  2  VALUES
+  3  (203, 303, 403, 603);
+
+1 row created.
+
+SQL> INSERT INTO StuModAssessmentResult
+  2  VALUES
+  3  (204, 304, 404, 604);
+
+1 row created.
+
+SQL> INSERT INTO StuModAssessmentResult
+  2  VALUES
+  3  (205, 305, 405, 605);
+
+1 row created.
+
+SQL> INSERT INTO StuModAssessmentResult
+  2  VALUES
+  3  (206, 306, 406, 606);
+
+1 row created.
+
+SQL> INSERT INTO StuModAssessmentResult
+  2  VALUES
+  3  (207, 307, 407, 607);
+
+1 row created.
+
+SQL> Select * from StuModAssessmentResult;
+
+ STUDENTID   MODULEID ASSESSMENTID   RESULTID
+---------- ---------- ------------ ----------
+       201        301          401        601
+       202        302          402        602
+       203        303          403        603
+       204        304          404        604
+       205        305          405        605
+       206        306          406        606
+       207        307          407        607
+
+7 rows selected.
+
+
+
+SQL> INSERT INTO Resources
+  2  Values
+  3  (1, 'Powerpoint', 3);
+
+1 row created.
+
+SQL> INSERT INTO Resources
+  2  Values
+  3  (2, 'Pdf', 6);
+
+1 row created.
+
+SQL> INSERT INTO Resources
+  2  Values
+  3  (3, 'Video', '5');
+
+1 row created.
+
+SQL> INSERT INTO Resources
+  2  Values
+  3  (4, 'LectureSlides', 2);
+
+1 row created.
+
+SQL> INSERT INTO Resources
+  2  Values
+  3  (5, 'Excel', 4);
+
+1 row created.
+
+SQL> INSERT INTO Resources
+  2  Values
+  3  (6, 'Word', 1);
+
+1 row created.
+
+SQL> INSERT INTO Resources
+  2  Values
+  3  (7, 'Image', 7);
+
+1 row created.
+
+SQL> Select * from Resources;
+
+RESOURCESID RESOURCESTYPE                                      RESOURCESSEQUENCEORDER
+----------- -------------------------------------------------- ----------------------
+          1 Powerpoint                                                              3
+          2 Pdf                                                                     6
+          3 Video                                                                   5
+          4 LectureSlides                                                           2
+          5 Excel                                                                   4
+          6 Word                                                                    1
+          7 Image                                                                   7
+
+7 rows selected.
+
+SQL> INSERT INTO StudentModuleResource
+  2  VALUES
+  3  (201,301,1,'Completed');
+
+1 row created.
+
+SQL> INSERT INTO StudentModuleResource
+  2  VALUES
+  3  (202,302,2,'Not completed');
+
+1 row created.
+
+SQL> INSERT INTO StudentModuleResource
+  2  VALUES
+  3  (203,303,3,'Not completed');
+
+1 row created.
+
+SQL> INSERT INTO StudentModuleResource
+  2  VALUES
+  3  (204,304,4,'completed');
+
+1 row created.
+
+SQL> INSERT INTO StudentModuleResource
+  2  VALUES
+  3  (205,305,5,'completed');
+
+1 row created.
+
+SQL> INSERT INTO StudentModuleResource
+  2  VALUES
+  3  (206,306,6,'Not completed');
+
+1 row created.
+
+SQL> INSERT INTO StudentModuleResource
+  2  VALUES
+  3  (207,307,7,'completed');
+
+1 row created.
+
+SQL> Select * from StudentModuleResource;
+
+ STUDENTID   MODULEID RESOURCESID RESOURCESSTATUS
+---------- ---------- ----------- --------------------
+       201        301           1 Completed
+       202        302           2 Not completed
+       203        303           3 Not completed
+       204        304           4 completed
+       205        305           5 completed
+       206        306           6 Not completed
+       207        307           7 completed
+
+7 rows selected.
+
+ UPDATE Result
+  2  SET MARKSOBTAINED =35
+  3  WHERE RESULTID = 601;
+
+1 row updated.
+
+SQL> UPDATE Result
+  2  SET MARKSOBTAINED =40
+  3  WHERE RESULTID = 603;
+
+1 row updated.
+
+SQL> UPDATE Result
+  2  SET MARKSOBTAINED =30
+  3  WHERE RESULTID = 607;
+
+1 row updated.
+
+SQL> Select * from Result;
+
+  RESULTID MARKSOBTAINED
+---------- -------------
+       601            35
+       602            60
+       603            40
+       604            70
+       605            87
+       606            56
+       607            30
+
+7 rows selected.
+
+SQL> UPDATE Result
+  2  SET MARKSOBTAINED =45
+  3  WHERE RESULTID = 603;
+
+1 row updated.
+
+SQL> UPDATE Result
+  2  SET MARKSOBTAINED =20
+  3  WHERE RESULTID = 605;
+
+1 row updated.
+
+SQL> Select * from Result;
+
+  RESULTID MARKSOBTAINED
+---------- -------------
+       601            35
+       602            60
+       603            45
+       604            70
+       605            20
+       606            56
+       607            30
+
+7 rows selected.
+
+SQL>
+
+
+
+
+
+
